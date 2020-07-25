@@ -1,5 +1,6 @@
 #include <math.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 #include "rational_approx.h"
 
@@ -115,13 +116,16 @@ static rational_t farey_add(rational_t *a, rational_t *b)
 
 void print_rational( rational_t* rat)
 {
-    int num_len = (int) log10(rat->numrerator) + 1;
-    int den_len = (int) log10(rat->denominator) + 1;
+    int num_len = (int) log10(abs(rat->numrerator)) + 1;
+    int den_len = (int) log10(abs(rat->denominator)) + 1;
+    
+    if(rat->numrerator < 0) num_len++;
+    if(rat->denominator < 0) den_len++;
 
     int max_len = (num_len > den_len) ? num_len : den_len;
     printf("\n");
 
-    int spaces = (max_len - num_len) / 2;  
+    int spaces = ceil((max_len - num_len) / 2.0);  
     for(int i = 0; i < spaces; ++i )
     {
         printf(" ");
