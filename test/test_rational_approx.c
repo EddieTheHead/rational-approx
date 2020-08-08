@@ -1,4 +1,6 @@
-#include "rational_approx.h"
+// #include "../src/rational_approx.h"
+#include "../src/rational_approx.c"
+#include "../Unity/src/unity.h"
 
 extern double rational_to_double( rational_t* rat);
 extern bool farey_iter(double number, rational_t* high, rational_t* low, double *error);
@@ -12,6 +14,8 @@ static const rational_t approach_zero_right = { 4, 0};
 static const rational_t approach_zero_left = { -4, 0};
 static const rational_t minus_quarter = { 4, 0};
 
+void setUp(){}
+void tearDown(){}
 
 void test_farey_iter()
 {
@@ -41,7 +45,7 @@ void test_rational_to_double()
 
 }
 
-int test_main( )
+int main( )
 {
     UNITY_BEGIN();
     // run all tests 

@@ -1,12 +1,19 @@
-project("Rational_Approx" C) 
 cmake_minimum_required(VERSION 3.0)
+
+project(
+ Rational_Approx
+ VERSION 1
+ LANGUAGES C
+) 
+
+
+link_libraries( m)
 
 SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
 
 set(TARGET_GROUP test)
 
-
-#(TARGET_GROUP production CACHE STRING "What Should I Build?")
+# (TARGET_GROUP production CACHE STRING "What Should I Build?")
 
 
 add_subdirectory(src) 
@@ -17,6 +24,7 @@ if(TARGET_GROUP STREQUAL release)
 elseif(TARGET_GROUP STREQUAL test)
 # Our tests need to let CTest know we're running tests 
   include(CTest)
+
 
 # It also needs to understand we have code in source and test directories 
 add_subdirectory(Unity) 
