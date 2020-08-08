@@ -1,0 +1,5 @@
+add_executable(test_rational_approx_app test_rational_approx.c)
+ 
+target_link_libraries(test_rational_approx_app src unity)
+ 
+add_test(test_main test_rational_approx_app)
